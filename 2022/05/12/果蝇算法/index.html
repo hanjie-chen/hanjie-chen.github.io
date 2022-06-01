@@ -29,7 +29,7 @@
 <meta property="og:description" content="前言：本科的毕业设计是做的和果蝇算法相关的工作，虽然论文是垃圾，但确实也把这个算法的基本原理的给弄懂了，本篇文章用于记录一下，这样既给小白指导，当未来的我还需要用到这个算法的时候也可以看一下。使用MATLAB实现">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-05-12T08:55:09.000Z">
-<meta property="article:modified_time" content="2022-05-29T12:44:12.383Z">
+<meta property="article:modified_time" content="2022-05-31T03:06:54.178Z">
 <meta property="article:author" content="平原君">
 <meta name="twitter:card" content="summary">
 
@@ -85,7 +85,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/hanjie-chen.github.io/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/hanjie-chen.github.io/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/hanjie-chen.github.io/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/hanjie-chen.github.io/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/hanjie-chen.github.io/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-categories"><a href="/hanjie-chen.github.io/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/hanjie-chen.github.io/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
   </ul>
 </nav>
 
@@ -116,7 +116,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E6%9E%9C%E8%9D%87%E7%AE%97%E6%B3%95%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">1、果蝇算法基本原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E6%9E%9C%E8%9D%87%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">2、果蝇算法流程</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E4%BB%80%E4%B9%88%E6%98%AF%E6%9E%9C%E8%9D%87%E7%AE%97%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">1 什么是果蝇算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%9E%9C%E8%9D%87%E7%AE%97%E6%B3%95%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">2 果蝇算法基本原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E6%9E%9C%E8%9D%87%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B"><span class="nav-number">3.</span> <span class="nav-text">3 果蝇算法流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E5%88%9D%E5%A7%8B%E5%8C%96%E7%AE%97%E6%B3%95%E5%8F%82%E6%95%B0"><span class="nav-number">3.1.</span> <span class="nav-text">1、初始化算法参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E6%9E%9C%E8%9D%87%E7%BE%A4%E4%BD%93%E5%97%85%E8%A7%89%E6%90%9C%E7%B4%A2"><span class="nav-number">3.2.</span> <span class="nav-text">2、果蝇群体嗅觉搜索</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E6%9E%9C%E8%9D%87%E7%BE%A4%E4%BD%93%E8%A7%86%E8%A7%89%E6%90%9C%E7%B4%A2"><span class="nav-number">3.3.</span> <span class="nav-text">3、果蝇群体视觉搜索</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81%E8%BF%AD%E4%BB%A3"><span class="nav-number">3.4.</span> <span class="nav-text">4、迭代</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -212,7 +212,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-05-29 20:44:12" itemprop="dateModified" datetime="2022-05-29T20:44:12+08:00">2022-05-29</time>
+      <time title="修改时间：2022-05-31 11:06:54" itemprop="dateModified" datetime="2022-05-31T11:06:54+08:00">2022-05-31</time>
     </span>
 
   
@@ -229,7 +229,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>158</span>
+      <span>1.6k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -253,8 +253,84 @@
 </blockquote>
 <hr>
 <span id="more"></span>
-
-<h3 id="1、果蝇算法基本原理"><a href="#1、果蝇算法基本原理" class="headerlink" title="1、果蝇算法基本原理"></a>1、果蝇算法基本原理</h3><h3 id="2、果蝇算法流程"><a href="#2、果蝇算法流程" class="headerlink" title="2、果蝇算法流程"></a>2、果蝇算法流程</h3><p>果蝇算法流程最好结合代码才能将明白，下面结合代码来讲解果蝇算法流程。</p>
+<h2 id="1-什么是果蝇算法">1 什么是果蝇算法</h2>
+<p>果蝇算法是一位叫做潘文超的台湾教授提出的一种算法，能够用来找到优化问题的解。本质上是模拟了果蝇群体搜索食物的过程，是一种群体智能算法。</p>
+<h2 id="2-果蝇算法基本原理">2 果蝇算法基本原理</h2>
+<p>果蝇算法实际上非常简单，整个算法流程仅仅包含2个步骤，原因是果蝇群体搜索食物的过程分为两个阶段，第一个阶段为嗅觉搜索，第二个阶段是视觉搜索。</p>
+<p>果蝇群体搜索食物的过程是这个样子的：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>Step 1</p>
+<p>果蝇个体通过嗅觉判断食物的大致方位，然后向周围的果蝇个体发出气味信息，报告自己得出的食物位置。在这之后果蝇个体接受从周围个体传递过来的食物信息，并且和自己得出的信息相互比较，判断哪一个果蝇个体得出的位置信息更加精确，这一过程将持续到所有果蝇个体得到统一的位置信息.</p>
+</li>
+<li class="lvl-2">
+<p>Step 2</p>
+<p>随着所有果蝇个体得出结论一致之后，所有果蝇通过视觉找到发现该位置的果蝇个体，并且聚集到该果蝇个体附近。</p>
+</li>
+</ul>
+<h2 id="3-果蝇算法流程">3 果蝇算法流程</h2>
+<p>果蝇算法流程最好结合代码才能弄明白，下面结合代码来讲解果蝇算法流程，代码流程划分为4个步骤</p>
+<h3 id="1、初始化算法参数">1、初始化算法参数</h3>
+<p>首先需要初始化果蝇算法的一些特定参数，如下表所示</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数名</th>
+<th style="text-align:center">参数含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>population_size</code></td>
+<td style="text-align:center">果蝇种群大小</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>max_iteration</code></td>
+<td style="text-align:center">最大迭代次数</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>dimension</code></td>
+<td style="text-align:center">果蝇坐标的维度</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>max_fly_distance</code></td>
+<td style="text-align:center">每只果蝇的最长飞行步长</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>coordinate_left_board</code></td>
+<td style="text-align:center">果蝇坐标的范围最小值</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>coordinate_right_board</code></td>
+<td style="text-align:center">果蝇坐标范围的最大值</td>
+</tr>
+</tbody>
+</table>
+<p>有了果蝇坐标的范围的最小值和最大值，就可以计算出果蝇坐标范围和坐标偏移（所谓坐标偏移就是一个用来方便使用rand函数的参数）</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">coordinate_range=(coordinate_right_board-coordinate_left_board)/<span class="number">2</span>;              <span class="comment">%坐标的范围</span></span><br><span class="line">coordiante_offset=(coordinate_right_board-coordinate_range);                    <span class="comment">%坐标距离原点的偏移程度</span></span><br></pre></td></tr></table></figure>
+<p>有了<code>coordinate_range</code>和<code>coordinate_offset</code>以及<code>dimension</code>之后就可以使用MATLAB中的rand函数随机生成初始化一只果蝇的坐标了，这里注意仅仅是一只果蝇，有同学问，难道不是果蝇群体吗？请接着看嗅觉搜索</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">X_axis=coordinate_range*(<span class="number">2</span>*(<span class="built_in">rand</span>(<span class="number">1</span>,dimension)<span class="number">-1</span>/<span class="number">2</span>))+coordiante_offset;</span><br><span class="line">Y_axis=coordinate_range*(<span class="number">2</span>*(<span class="built_in">rand</span>(<span class="number">1</span>,dimension)<span class="number">-1</span>/<span class="number">2</span>))+coordiante_offset;</span><br></pre></td></tr></table></figure>
+<p>看到这里有的同学可以会有疑惑，举个例子就好理解了，比如说维度在30，范围是[-10, 20]的果蝇群体是这样子生成的</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>首先<code>rand(1, dimension)</code>生成一个1*30的矩阵，矩阵中的每一个元素均为(0,1)中的随机数</p>
+</li>
+<li class="lvl-2">
+<p><code>rand(1,dimension)-1/2</code>之后矩阵中的每一个元素就成了(-0.5, 0.5)的随机数</p>
+</li>
+<li class="lvl-2">
+<p><code>2*(rand(1,dimension)-1/2)</code>之后矩阵中的每一个元素就成了(-1, 1)的随机数</p>
+</li>
+<li class="lvl-2">
+<p><code>coordinate_range*(2*(rand(1,dimension)-1/2))</code>之后矩阵中的每一个元素就成了(-15, 15)的随机数，因为<code>coordinate_range</code>计算结果为15</p>
+</li>
+<li class="lvl-2">
+<p><code>coordinate_range*(2*(rand(1,dimension)-1/2))+coordiante_offset</code>之后矩阵中的每一个元素就成了(-10, 20)的随机数，因为<code>coordinate_offset</code>计算结果为5</p>
+</li>
+</ul>
+<h3 id="2、果蝇群体嗅觉搜索">2、果蝇群体嗅觉搜索</h3>
+<h3 id="3、果蝇群体视觉搜索">3、果蝇群体视觉搜索</h3>
+<h3 id="4、迭代">4、迭代</h3>
 
     </div>
 
@@ -323,13 +399,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">3k</span>
+    <span title="站点总字数">4k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2 分钟</span>
+    <span title="站点阅读时长">4 分钟</span>
   </span>
 </div>
 <div class="busuanzi-count">
