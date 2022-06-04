@@ -30,7 +30,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://chenhanjie.cn/2022/05/12/%E6%9E%9C%E8%9D%87%E7%AE%97%E6%B3%95/node.png">
 <meta property="article:published_time" content="2022-05-12T08:55:09.000Z">
-<meta property="article:modified_time" content="2022-06-03T16:01:33.481Z">
+<meta property="article:modified_time" content="2022-06-04T18:00:26.098Z">
 <meta property="article:author" content="平原君">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://chenhanjie.cn/2022/05/12/%E6%9E%9C%E8%9D%87%E7%AE%97%E6%B3%95/node.png">
@@ -53,7 +53,9 @@
   <noscript>
     <link rel="stylesheet" href="/hanjie-chen.github.io/css/noscript.css">
   </noscript>
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
   <div class="headband"></div>
@@ -214,7 +216,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-06-04 00:01:33" itemprop="dateModified" datetime="2022-06-04T00:01:33+08:00">2022-06-04</time>
+      <time title="修改时间：2022-06-05 02:00:26" itemprop="dateModified" datetime="2022-06-05T02:00:26+08:00">2022-06-05</time>
     </span>
 
   
@@ -418,7 +420,7 @@ CoverageRate=\frac{1}{100}\sum_{i=1}<sup>{36}\sum_{j=1}</sup>{400}Judge(连接�
 $$</p>
 <p>本文的优化目标可以表达为既要能够保证较高的覆盖率的同时又要AP节点的总功率较低，然而在实际情况下对用户群体节点做到100%的覆盖是困难的，故允许存在没有覆盖到的用户节点，采用unconnected_pln_number表示在400个用户结点中没有被AP接地那覆盖的用户群体节点数量，对最后的结果引入平方作为适应度函数的一部分，其系数经过多次测试定位为1000。适应度函数的公式如下</p>
 <p>$$<br>
-min(\sum_{i=1}<sup>{36}P_i+1000*未连接用户节点数量</sup>2)<br>
+min(\sum_{i=1}<sup>{36}P_i+1000*unconnect_user_number</sup>2)<br>
 $$</p>
 <p>这个模型需要求解的是，这36个连接节点在这个平面区域的坐标和功率，要求功率尽可能第，对用户节点的覆盖率尽可能高。</p>
 <p><strong>其实这已经算是一个多目标优化问题了，只不过我将其变成了单目标，好像多目标优化有自己特定的方式，我这样子是有问题的。</strong></p>
@@ -436,7 +438,6 @@ $$</p>
 <p>改进的果蝇算法知识修正了其中步长，所以除了动态步长变化函数之外其他的部分和原式果蝇算法相同。因为需要考虑2个步长，一个是功率变化步长，一个是坐标变化步长。所以改进之后代码如下</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%% 动态步长调整函数</span></span><br><span class="line"><span class="comment">% 输入参数：当前迭代次数，最大迭代次数，当前步长</span></span><br><span class="line"><span class="comment">% 输出参数：修正之后的步长</span></span><br><span class="line"><span class="comment">% version:1.0 author:hanjie-chen 2022/4/29</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[max_fly_distance_location_cruuent, max_fly_distance_power_cruuent]</span> = <span class="title">Dynamic_Fly_Distance</span><span class="params">(iteration_turn, iteration_max, max_fly_distance_initial, range_location, range_power)</span></span></span><br><span class="line">    max_fly_distance_location_cruuent = (range_location/<span class="number">10</span>)*(<span class="number">1</span>-(iteration_turn/iteration_max))*max_fly_distance_initial;</span><br><span class="line">    max_fly_distance_power_cruuent = (range_power/<span class="number">10</span>)*(<span class="number">1</span>-(iteration_turn/iteration_max))*max_fly_distance_initial;</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
 <p>全部代码详见Github上面我的<a target="_blank" rel="noopener" href="https://github.com/hanjie-chen/FOA_Graduation_Project">仓库</a>中的FOA_version4</p>
-<p>ps:我发现hexo对latex的支持不太友好。</p>
 
     </div>
 
@@ -556,7 +557,7 @@ $$</p>
 
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
 <script src="/hanjie-chen.github.io/js/third-party/math/mathjax.js"></script>
 
 
